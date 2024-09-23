@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2016", // es2016은 ECMAScript 2016으로 컴파일하겠다는 뜻
+    "module": "CommonJS", // CommonJS는 Node.js에서 주로 사용하는 모듈 시스템
+    "esModuleInterop": true, // import 문으로 CommonJS 모듈을 쉽게 사용할 수 있다.
+    "forceConsistentCasingInFileNames": true, // 이 옵션을 활성화하면 운영 체제에 따라 대소문자가 다른 파일 이름을 사용하여 발생할 수 있는 오류를 방지할 수 있다.
+    "strict": true, // TypeScript의 타입 안전성을 높일 수 있다.
+    "skipLibCheck": true, // 이 옵션을 사용하면 외부 라이브러리의 타입 정의에 대한 체크를 생략하여 컴파일 속도를 높일 수 있다.
+    "outDir": "dist", // dist로 설정하면 컴파일 결과물이 dist 폴더에 저장
+    "noUncheckedIndexedAccess": true // 이 옵션을 활성화하면 배열이나 객체에서 인덱스 접근 시 더 엄격한 타입 체크를 수행
+    // "lib": ["ES2022", "DOM"]
+  },
+  "include": ["src/**/*"] // "src/**/*"는 src 디렉토리와 그 하위 모든 파일을 포함한다는 의미
+}
+
+/** compilerOptions - TypeScript 컴파일러의 동작을 설정하는 데 사용
+ * "target" - 어떤 ECMAScript 버전으로 변환할지를 설정.
+ * "module" - 모듈 시스템을 지정
+ * "esModuleInterop" - ES6 모듈과 CommonJS 모듈 간의 상호 운용성을 허용
+ * "forceConsistentCasingInFileNames" - 파일 이름의 대소문자를 일관되게 유지하도록 강제한다.
+ * "strict" - 모든 엄격한 타입 체크 옵션을 활성화
+ * "skipLibCheck" - 라이브러리 파일의 타입 체크를 건너뛰도록 설정
+ * "outDir" - 컴파일된 JavaScript 파일이 저장될 디렉토리를 지정
+ * "noUncheckedIndexedAccess" - 인덱스 접근을 체크하도록 설정
+ * "lib" - 사용할 라이브러리를 지정
+ */
+
+// include - TypeScript 컴파일러가 포함할 파일이나 디렉토리를 지정
