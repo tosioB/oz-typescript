@@ -37,11 +37,11 @@ function getUserName(): string {
 console.log(getUserName()); // Alice
 
 // void - 함수가 값을 반환하지 않음을 나타낸다.
-function logMessage(message: string): void {
+function printMessage(message: string): void {
   console.log(message);
 }
 
-logMessage("This is a log message."); // This is a log message.
+printMessage("This is a log message."); // This is a log message.
 
 // never - 함수가 절대로 반환하지 않음을 나타낸다.
 function throwCustomError(errorMessage: string): never {
