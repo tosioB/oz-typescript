@@ -2,8 +2,8 @@
 let myTuple: [string, number, boolean];
 
 myTuple = ["Hello", 15, false];
-myTuple = ["Hello", true, 1]; // Error
-myTuple = ["Hello", 15]; // Error
+// myTuple = ["Hello", true, 1]; // Error
+// myTuple = ["Hello", 15]; // Error
 
 // 사용 예시 1
 function getUserInfo(): [number, string] {
@@ -30,7 +30,7 @@ let coords: coord[] = [];
 
 coords.push([36, -95]);
 coords.push([38, -76]);
-coords.push([false, "1"]); // Error
+// coords.push([false, "1"]); // Error
 
 for (const [lat, lng] of coords) {
   console.log(lat, lng);

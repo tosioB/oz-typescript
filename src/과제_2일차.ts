@@ -111,7 +111,25 @@ const bookInfo: BookInfo = ["자바스크립트 완벽 가이드", "데이빗 �
 console.log(bookInfo);
 
 // 7. 열거형
-//   책의 장르를 나타내는 열거형(Genre)을 정의하세요.
-//   Genre는 Fiction, NonFiction, Fantasy, Biography, ScienceFiction, Romance 여섯 가지 값을 가집니다.
-//   Book 타입을 확장하여 DetailedBook 타입을 정의하세요. 이 타입은 기존 Book 타입에 genre 속성을 추가로 가져야 합니다.
-//   DetailedBook 객체의 예시 데이터를 하나 만드세요. */
+enum Genre {
+  Fiction,
+  NonFiction,
+  Fantasy,
+  Biography,
+  ScienceFiction,
+  Romance
+}
+
+type DetailedBook = Book & {
+  genre: Genre;
+};
+
+const detailedBook: DetailedBook = {
+  title: "자바스크립트 완벽 가이드",
+  author: "빌 알스프레드",
+  publicationYear: 2019,
+  isAvailable: true,
+  genre: Genre.Fantasy
+};
+
+console.log(detailedBook);
