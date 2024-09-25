@@ -1,3 +1,11 @@
+/** Array
+ * 배열의 모든 요소가 "동일한" 타입을 갖도록 명시
+ * 이를 통해 배열 내부 요소의 타입 안정성 제공
+ * 두 가지 방법으로 표현
+ * type[]
+ * Array<type>
+ */
+
 // 기본 배열 타입 - 가장 기본적인 배열 타입 정의 방법
 const numberArray: number[] = [1, 2, 3, 4, 5];
 const stringArray: string[] = ["apple", "banana", "cherry"];
