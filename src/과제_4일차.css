@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+#todo-form {
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  padding: 8px;
+  width: 200px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+button.delete-button {
+  background-color: #f44336;
+}
+
+button.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+button.toggle-button {
+  background-color: #2196f3;
+}
+
+button.toggle-button:hover {
+  background-color: #1976d2;
+}

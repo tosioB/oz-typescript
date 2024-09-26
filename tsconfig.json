@@ -7,7 +7,8 @@
     "strict": true, // TypeScript의 타입 안전성을 높일 수 있다.
     "skipLibCheck": true, // 이 옵션을 사용하면 외부 라이브러리의 타입 정의에 대한 체크를 생략하여 컴파일 속도를 높일 수 있다.
     "outDir": "dist", // dist로 설정하면 컴파일 결과물이 dist 폴더에 저장
-    "noUncheckedIndexedAccess": true // 이 옵션을 활성화하면 배열이나 객체에서 인덱스 접근 시 더 엄격한 타입 체크를 수행
+    "noUncheckedIndexedAccess": true, // 이 옵션을 활성화하면 배열이나 객체에서 인덱스 접근 시 더 엄격한 타입 체크를 수행
+    "strictNullChecks": true
     // "lib": ["ES2022", "DOM"]
   },
   "include": ["src/**/*"] // "src/**/*"는 src 디렉토리와 그 하위 모든 파일을 포함한다는 의미
