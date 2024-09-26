@@ -26,8 +26,8 @@ const TODO_FORM_ID = "todo-form" as const;
 const TODO_INPUT_ID = "todo-input" as const;
 const TODO_LIST_ID = "todo-list" as const;
 
-function getElementById(idElement: string) {
-  return document.getElementById(idElement);
+function getElementById<T extends HTMLElement>(id: string): T | null {
+  return document.getElementById(id) as T | null;
 }
 
 // Todo 타입 정의
@@ -38,52 +38,82 @@ type Todo = {
 };
 
 // Todo 상태 배열
-const todos: Todo[] = [];
-
-// DOM 요소를 가져오는 함수 정의
-// function getElementById()
+let todos: Todo[] = [];
 
 // Todo 추가 함수
 function addTodo(title: string) {
   const newTodo: Todo = {
     id: Number(new Date()),
-    title: "",
+    title: title,
     isComplete: false
   };
 
   todos.push(newTodo);
+  renderTodos();
 }
 
 // Todo 삭제 함수
+function delTodo(id: number) {
+  todos = todos.filter((todo) => {
+    return todo.id !== id;
+  });
+
+  renderTodos();
+}
 
 // Todo 상태 업데이트 함수
+function completeTodo(id: number, isComplete: boolean) {
+  // console.log(id);
+  // console.log(title);
+  const todo = todos.find((todo) => todo.id === id);
+  if (todo) {
+    todo.isComplete = !todo.isComplete;
+    renderTodos();
+  }
+}
 
 // Todo 렌더링 함수
 function renderTodos() {
-  const todoList = getElementById(TODO_LIST_ID);
+  const todoList: HTMLUListElement | null = getElementById(TODO_LIST_ID);
+
+  todoList!.innerHTML = "";
 
   todos.forEach((todo) => {
-    const li = document.createElement("li");
-    const deleteBtn = document.createElement("button");
-    const completeBtn = document.createElement("button");
-
+    const li: HTMLLIElement = document.createElement("li");
     li.textContent = todo.title;
+    li.style.textDecoration = todo.isComplete ? "line-through" : "none";
 
-    // todoList?.appendChild(li);
+    const deleteBtn: HTMLButtonElement = document.createElement("button");
+    deleteBtn.textContent = "삭제";
+    deleteBtn.addEventListener("click", () => delTodo(todo.id));
 
-    // const delBtn = document.createElement("button");
-    // delBtn.textContent = "삭제";
-    // delBtn.addEventListener("click", () => delTodo(todo.id));
+    const completeBtn: HTMLButtonElement = document.createElement("button");
+    completeBtn.textContent = todo.isComplete ? "미완료" : "완료";
+    completeBtn.addEventListener("click", () =>
+      completeTodo(todo.id, todo.isComplete)
+    );
+
+    li.append(deleteBtn);
+    li.appendChild(completeBtn);
+
+    todoList?.appendChild(li);
   });
 }
 
-function handleFormSubmit(e: { preventDefault: () => void }) {
+function handleFormSubmit(e: Event): void {
   e.preventDefault();
-  const input = getElementById(TODO_INPUT_ID);
-  console.log(input);
+  const input = getElementById<HTMLInputElement>(TODO_INPUT_ID);
+  if (!input || input.value.trim() === "") return;
+  // console.log(input.value);
+  addTodo(input.value);
+  // console.log(todos);
+  input.value = "";
 }
 
 // DOM 로드 후 초기화
 document.addEventListener("DOMContentLoaded", () => {
+  const todoForm = getElementById<HTMLFormElement>(TODO_FORM_ID);
+  todoForm?.addEventListener("submit", handleFormSubmit);
+
   renderTodos();
 });
